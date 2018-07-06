@@ -15,17 +15,6 @@ router.get("/", function(req, res, next) {
       WHERE
           EXTRACT(MONTH FROM birth_date) = (EXTRACT(MONTH FROM NOW()) -4)
       ORDER BY
-          birth_date ASC
-      UNION
-      SELECT
-          name,
-          birth_date,
-          EXTRACT(YEAR FROM age(birth_date)) AS age
-      FROM
-          "People"
-      WHERE
-          EXTRACT(MONTH FROM birth_date) = (EXTRACT(MONTH FROM NOW()) -1)
-      ORDER BY
           birth_date ASC`,
       {
         model: models.Person
