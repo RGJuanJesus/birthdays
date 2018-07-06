@@ -13,7 +13,7 @@ router.get("/", function(req, res, next) {
       FROM
           "People"
       WHERE
-          EXTRACT(MONTH FROM birth_date) = (EXTRACT(MONTH FROM NOW()) -1)
+          EXTRACT(MONTH FROM birth_date) = (EXTRACT(MONTH FROM NOW()) -4)
       ORDER BY
           birth_date ASC`,
       {
