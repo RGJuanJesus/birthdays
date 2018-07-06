@@ -13,7 +13,7 @@ router.get("/", function(req, res, next) {
       FROM
           "People"
       ORDER BY
-          birth_date DESC`,
+          (DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d"))<=0`,
           /*IF(DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0,
                DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")+1231,
                DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d"))`,*/
