@@ -13,10 +13,10 @@ router.get("/", function(req, res, next) {
       FROM
           "People"
       ORDER BY
-          EXTRACT(MONTH FROM BirthDate)<=5`,
-          /*IF(DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0,
-               DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")+1231,
-               DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d"))`,*/
+          IF(DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0,
+               DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")+1231,
+               DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d"))`,
+          /*EXTRACT(MONTH FROM BirthDate)<=5`,*/
       {
         model: models.Person
       }
