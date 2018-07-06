@@ -7,7 +7,7 @@ router.get("/", function(req, res, next) {
   models.sequelize
     .query(
       `SELECT
-          concat(name,name),
+          name,
           birth_date,
           EXTRACT(YEAR FROM age(birth_date)) AS age
       FROM
