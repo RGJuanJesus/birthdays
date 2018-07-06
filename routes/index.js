@@ -13,7 +13,7 @@ router.get("/", function(req, res, next) {
       FROM
           "People"
       WHERE
-          MONTH(birth_date)=6
+          EXTRACT(MONTH FROM birth_date) = 6
       ORDER BY
           birth_date ASC`,
       {
