@@ -13,8 +13,9 @@ router.get("/", function(req, res, next) {
       FROM
           "People"
       ORDER BY
-          EXTRACT(MONTH FROM birth_date)<10`,
-          /*IF(DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0,
+          birth_date DESC`,
+          /*Heroku no soporta estas funciones pero el código está comprobado
+          IF(DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0,
                DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")+1231,
                DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d"))`,*/
       {
