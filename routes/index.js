@@ -13,7 +13,7 @@ router.get("/", function(req, res, next) {
       FROM
           "People"
       ORDER BY
-          birth_date DESC`,
+          birth_date ASC`,
       {
         model: models.Person
       }
