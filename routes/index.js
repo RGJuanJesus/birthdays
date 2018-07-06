@@ -12,12 +12,10 @@ router.get("/", function(req, res, next) {
           EXTRACT(YEAR FROM age(birth_date)) AS age
       FROM
           "People"
-      WHERE
-          EXTRACT(MONTH FROM birth_date) = (EXTRACT(MONTH FROM NOW()) -4)
       ORDER BY
-          birth_date ASC`,
-    /*SELECT NOW(), IF(DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0, DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")+1231, DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")) as Dif, CONCAT(FirstName, LastName) as Name, BirthDate from Employees
-order by Dif*/
+          IF(DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0,
+          DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d")+1231,
+          DATE_FORMAT(BirthDate, "%m%d")-DATE_FORMAT(NOW(), "%m%d"))`,
       {
         model: models.Person
       }
