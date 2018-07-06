@@ -7,13 +7,13 @@ router.get("/", function(req, res, next) {
   models.sequelize
     .query(
       `SELECT
-          name,
+          concat(name,name),
           birth_date,
           EXTRACT(YEAR FROM age(birth_date)) AS age
       FROM
           "People"
       ORDER BY
-          EXTRACT(MONTH FROM birth_date)<=5`,
+          EXTRACT(MONTH FROM birth_date)-EXTRACT(MONTH FROM birth_date)<=5`,
           /*IF(DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0,
                DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")+1231,
                DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d"))`,*/
