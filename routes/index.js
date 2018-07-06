@@ -9,7 +9,7 @@ router.get("/", function(req, res, next) {
       `SELECT
           name,
           birth_date,
-          MOD(EXTRACT(YEAR FROM age(birth_date)),6) AS age
+          EXTRACT(YEAR FROM age(birth_date)) AS age
       FROM
           "People"
       ORDER BY
