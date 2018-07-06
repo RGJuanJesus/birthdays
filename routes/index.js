@@ -15,6 +15,7 @@ router.get("/", function(req, res, next) {
       ORDER BY
           birth_date DESC`,
           /*Heroku no soporta estas funciones pero el código está comprobado
+          Heroku doesn't support this functions but this code is correct
           IF(DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")<=0,
                DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d")+1231,
                DATE_FORMAT(birth_date, "%m%d")-DATE_FORMAT(NOW(), "%m%d"))`,*/
