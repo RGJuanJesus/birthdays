@@ -12,6 +12,8 @@ router.get("/", function(req, res, next) {
           EXTRACT(YEAR FROM age(birth_date)) AS age
       FROM
           "People"
+      WHERE
+          MONTH(birth_date)<MONTH(NOW())
       ORDER BY
           birth_date ASC`,
       {
